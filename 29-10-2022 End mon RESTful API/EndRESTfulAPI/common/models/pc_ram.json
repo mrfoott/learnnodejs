@@ -1,0 +1,22 @@
+{
+  "name": "PC_RAM",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pcID": {
+      "type": "string",
+      "required": true
+    },
+    "ramID": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

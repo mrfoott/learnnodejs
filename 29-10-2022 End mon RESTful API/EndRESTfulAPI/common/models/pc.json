@@ -1,0 +1,41 @@
+{
+  "name": "PC",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pcID": {
+      "type": "string",
+      "required": true
+    },
+    "pcName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pCChips": {
+      "type": "hasMany",
+      "model": "PC_Chip",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "pCRams": {
+      "type": "hasMany",
+      "model": "PC_RAM",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

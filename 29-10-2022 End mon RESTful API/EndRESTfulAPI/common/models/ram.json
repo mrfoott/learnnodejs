@@ -1,0 +1,32 @@
+{
+  "name": "RAM",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ramID": {
+      "type": "string",
+      "required": true
+    },
+    "ramName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pCRams": {
+      "type": "hasMany",
+      "model": "PC_RAM",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

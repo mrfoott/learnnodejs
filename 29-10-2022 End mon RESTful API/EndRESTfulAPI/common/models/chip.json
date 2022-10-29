@@ -1,0 +1,32 @@
+{
+  "name": "Chip",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "chipID": {
+      "type": "string",
+      "required": true
+    },
+    "chipName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pCChips": {
+      "type": "hasMany",
+      "model": "PC_Chip",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "4e72485e-9e77-47c6-950a-0cf84c0ee50b",
+		"name": "End RESTful Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23469787"
+	},
+	"item": [
+		{
+			"name": "GET PC (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify pcName\"] = response[0].pcName ==\"May cua Phu\";\r",
+							"tests[\"validating status code\"]=responseCode.code==200;\r",
+							"tests[\"validating response body\"]=responseBody.has(\"pcID\");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/PCs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PCs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET RAM (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify ramName\"] = response[0].ramName ==\"Corsair\";\r",
+							"tests[\"validating status code\"]=responseCode.code==200;\r",
+							"tests[\"validating response body\"]=responseBody.has(\"ramID\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/RAMs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"RAMs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Chip (Contain script test)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify chipName\"] = response[0].chipName ==\"i5-9900\";\r",
+							"tests[\"validating status code\"]=responseCode.code==200;\r",
+							"tests[\"validating response body\"]=responseBody.has(\"chipID\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST PC (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify PC name\"]=response.pcName==\"May cua thay Tuan\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pcID\": \"PC06\",\r\n  \"pcName\": \"May cua thay Tuan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/PCs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PCs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST RAM (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify RAM name\"]=response.ramName==\"Kingston\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ramID\": \"ram6\",\r\n  \"ramName\": \"Kingston\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/RAMs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"RAMs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Chip (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify Chip name\"]=response.chipName==\"i5-10100\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"chipID\": \"Chip6\",\r\n  \"chipName\": \"i5-10100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT PC",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pcID\": \"PC06\",\r\n  \"pcName\": \"May cua thay Tuan\",\r\n  \"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/PCs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PCs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT RAM",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ramID\": \"ram06\",\r\n  \"ramName\": \"Kingston\",\r\n  \"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/RAMs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"RAMs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Chip",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"chipID\": \"Chip6\",\r\n    \"chipName\": \"i5-10100\",\r\n    \"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PC_Chips (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify pcID\"] = response[0].pcID ==\"PC02\";\r",
+							"tests[\"validating status code\"]=responseCode.code==200;\r",
+							"tests[\"validating response body\"]=responseBody.has(\"pcID\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/PC_Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PC_Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST PC_Chips (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify PC ID\"]=response.pcID==\"PC02\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pcID\": \"PC02\",\r\n  \"chipID\": \"Chip1\",\r\n  \"pCId\": 2,\r\n  \"chipId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/PC_Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PC_Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT PC_Chips",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pcID\": \"PC02\",\r\n    \"chipID\": \"Chip5\",\r\n    \"id\": 5,\r\n    \"pCId\": 2,\r\n    \"chipId\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/PC_Chips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PC_Chips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PC_RAMs (Contain script test)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"verify pcID\"] = response[0].pcID ==\"PC02\";\r",
+							"tests[\"verify ramID\"] = response[0].ramID ==\"ram1\";\r",
+							"tests[\"validating status code\"]=responseCode.code==200;\r",
+							"tests[\"validating response body\"]=responseBody.has(\"pcID\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/PC_RAMs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"PC_RAMs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
