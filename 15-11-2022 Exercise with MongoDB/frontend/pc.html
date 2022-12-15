@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">PC</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./ram.html">RAM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./chipset.html">Chipset</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>PC Name</th>
+                <th>RAM Name</th>
+                <th>Chipset Name</th>
+                <th>Memory</th>
+                <th>Storage</th>
+                <th>GPU</th>
+                <th>PSU</th>
+            </tr>
+        </thead>
+        <tr>
+
+        </tr>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        const appendToDOM = (pcs) => {
+            const tbody = document.querySelector("tbody");
+            pcs.map((pcs) => {
+                tbody.appendChild(create_tr(pcs));
+            });
+        };
+
+        const fetch_PCs = () => {
+            axios
+                .get("http://localhost:9999/getAllPC")
+                .then((res) => {
+                    const pcs = res.data;
+                    appendToDOM(pcs);
+                    // console.log(res.data);
+                })
+                .catch((error) => console.error(error));
+        };
+
+        const create_tr = (pcs) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${pcs.pcName}</td> 
+                            <td>${pcs.ramName}</td> 
+                            <td>${pcs.chipsetName}</td> 
+                            <td>${pcs.memory}</td> 
+                            <td>${pcs.storage}</td> 
+                            <td>${pcs.gpuName}</td> 
+                            <td>${pcs.psu}</td>
+                            <td><span class="btn-group"><button class="btn btn-primary">Edit</button><button class="btn btn-danger">Delete</button></span></td>`;
+            return tr;
+        };
+
+        fetch_PCs();
+    </script>
+
+</body>
+
+</html>
