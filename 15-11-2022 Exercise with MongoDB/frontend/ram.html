@@ -98,20 +98,25 @@
                 .catch((error) => console.error(error));
         };
 
-        const handleClick = (_id) => {
+        const handleClick = (id) => {
             // window.location.assign('http://127.0.0.1:5500/frontend/editRAM.html')
-            document.cookie = _id
+            // document.cookie = _id
             console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            console.log(_id);
+            console.log(id);
 
         }
 
         const create_tr = (rams) => {
+            // const element = document.getElementById(rams._id);
+            // element.addEventListener("click", () => {
+            //     console.log("AAAAAAAAAAAAAAAAAAA");
+            // })
+
             const tr = document.createElement("tr");
             tr.innerHTML = `<td>${rams.ramName}</td>
-                            <td>${rams.memory}</td> 
+                            <td>${rams.memory} GB</td> 
                             <td>${rams.bus}</td> 
-                            <td>${rams.price}</td>
+                            <td>${rams.price} VND</td>
                             <td><span class="btn-group"><button id="${rams._id}" class="btn btn-primary" onclick="handleClick(${rams._id})">Edit</button><button class="btn btn-danger">Delete</button></span></td>`;
             return tr;
         };
